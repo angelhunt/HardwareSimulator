@@ -11,10 +11,13 @@ import java.util.Scanner;
 
 public class Test {
     private static class Instruction{
-        protected int addres = 0, cycle = 0;
-        protected boolean type;
+        int addres, cycle = 0;
+        boolean type;
 
-        public Instruction(int addres, int cycle, boolean type) {
+
+
+        Instruction(int addres, int cycle, boolean type) {
+            this.addres = 0;
             this.addres = addres;
             this.cycle = cycle;
             this.type = type;
@@ -31,12 +34,8 @@ public class Test {
         int access[][] = new int[4][4];
         int miss_loads[] = new int[4];
         int miss_stores[] = new int[4];
-        double cache_hit_rate;
-        double cache_hit_load_rate;
-        double cache_hit_store_rate;
-        double cpi;
         for(Instruction ins : inslist) {
-            int cycle = 0;
+            int cycle;
             if (ins.type)
                 cycle = cache.store(ins.addres);
             else
