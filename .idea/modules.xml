@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Cache_Sim/Cache_Sim.iml" filepath="$PROJECT_DIR$/Cache_Sim/Cache_Sim.iml" />
       <module fileurl="file://$PROJECT_DIR$/MyLab.iml" filepath="$PROJECT_DIR$/MyLab.iml" />
-      <module fileurl="file://$PROJECT_DIR$/src/cache_simulation.iml" filepath="$PROJECT_DIR$/src/cache_simulation.iml" />
     </modules>
   </component>
 </project>

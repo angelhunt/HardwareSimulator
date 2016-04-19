@@ -1,9 +1,20 @@
-package org.mhj.cachesim;
+package cachesim;
 
 /**
  * Created by edward on 16-4-7.
  */
 public abstract class Storage {
+
+
+    public static void setClock_cycle(long clock_cycle) {
+        Storage.clock_cycle = clock_cycle;
+    }
+
+    static protected long clock_cycle = 0;
+
+    public static long getClock_cycle() {
+        return clock_cycle;
+    }
 
     public int getLoad_count() {
         return load_count;
@@ -48,8 +59,10 @@ public abstract class Storage {
     protected Storage() {
         load_count = 0;
         store_count = 0;
+        load_miss_count = 0;
+        store_miss_count = 0;
     }
 
-    public abstract int load(int address);
-    public abstract int store(int address);
+    public abstract Res load(int address);
+    public abstract Res store(int address);
 }
