@@ -1,9 +1,9 @@
 package cachesim;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringTokenizer;
 
 /**
  * Created by edward on 16-4-7.
@@ -183,11 +183,15 @@ public class Test {
         ArrayList<Instruction> inslist = new ArrayList<>();
         File dic = new File("./data");
         File[] files = dic.listFiles();
-        System.out.println(Integer.toHexString(Integer.MIN_VALUE));
+      //  System.out.println(Integer.toHexString(Integer.MIN_VALUE));
         assert files != null;
         for(File file : files){
             Scanner input = new Scanner(file);
+            String name = file.getName();
             inslist.clear();
+            System.setOut(new PrintStream(new BufferedOutputStream(new FileOutputStream(new StringTokenizer(file.getName(), ".").nextToken()
+                    + ".out"))));
+            System.out.println("run " + file.getName());
             while(input.hasNext()){
                 String line = input.nextLine();
                 String tokens[] = line.split(" ");
@@ -196,8 +200,9 @@ public class Test {
                 inslist.add(ins);
 
             }
-            System.out.println("run " + file.getName());
             run(inslist);
+
+            System.out.close();
 
         }
 
